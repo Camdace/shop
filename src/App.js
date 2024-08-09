@@ -11,6 +11,11 @@ function App() {
 
   return (
     <div className="App" >
+
+      <Routes>
+        <Route path="/detail" element={ <div>상세페이지임</div> } />
+        <Route path="/about" element={ <div>어바웃페이지임</div> } />
+      </Routes>
       
       {/* <img src={main}/> */}
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
