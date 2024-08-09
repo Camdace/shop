@@ -1,11 +1,9 @@
 import './App.css';
 import { useState } from 'react';
 import { Card, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Home from './inc/Home';
-import Product from './inc/Product';
 // import main from './img/main.jpg';
 import data from './data.js';
+import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
 
@@ -45,39 +43,6 @@ function App() {
         </Container>
       </Navbar>
 
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            149,000원<br/>
-            레이저코리아 헌츠맨 V2 리니어 한글 Razer Huntsman V2
-          </Card.Text>
-        </Card.Body>
-      </Card>
-
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            149,000원<br/>
-            레이저코리아 헌츠맨 V2 리니어 한글 Razer Huntsman V2
-          </Card.Text>
-        </Card.Body>
-      </Card>
-
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            149,000원<br/>
-            레이저코리아 헌츠맨 V2 리니어 한글 Razer Huntsman V2
-          </Card.Text>
-        </Card.Body>
-      </Card>
-
       <div className="container">
         <div className="row">
           {/* <List keyboard={keyboard[0]} i={1}></List>
@@ -93,14 +58,7 @@ function App() {
         </div>
       </div>
 
-      <Router>
-        <Link to="/">Home</Link> 
-        <Link to="/Product">Product</Link>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Product" element={<Product />} />
-        </Routes>
-      </Router>
+      
     </div>
   );
 }
