@@ -5,6 +5,7 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/Detail.js'
+import axios from 'axios'
 
 function App() {
 
@@ -65,14 +66,23 @@ function App() {
             </div> 
           </>
           } /> 
-        <Route path="/detail/:id" element={ <Detail keyboard={keyboard}/> } />
 
+        <Route path="/detail/:id" element={ <Detail keyboard={keyboard}/> } />
         <Route path="*" element={ <div>404페이지</div> } />
         <Route path="/about" element={ <About/> } >  
           <Route path="member" element={ <div>멤버들</div> } />
           <Route path="location" element={ <div>회사위치</div> } />
         </Route>
       </Routes>
+
+      <button onClick={()=>{
+        axios.get('https://codingapple1.github.io/shop/data2.json').then((결과)=>{
+          console.log(결과.data)
+        })
+        .catch(()=>{
+          console.log('실패함')
+        })
+      }}>버튼</button>
 
     </div>
   );
@@ -93,7 +103,7 @@ function List(props) {
   return(
     <div className="col-md-4">
       <a href={`/detail/`+ props.i} style={{ textDecoration: 'none' }} >
-        <img src={process.env.PUBLIC_URL + '/img/product-' + (props.i+1) +'.jpg'} width="80%" /> 
+        <img src={process.env.PUBLIC_URL + '/img/product-' + (props.i) +'.jpg'} width="80%" /> 
         <h4>{props.keyboard.price}</h4>
         <p>{props.keyboard.title}</p>
       </a>
