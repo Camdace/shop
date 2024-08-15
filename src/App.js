@@ -1,15 +1,16 @@
 import './App.css';
 import { useState } from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 // import main from './img/main.jpg';
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/Detail.js'
 import axios from 'axios'
+import Cart from './routes/Cart.js'
 
 function App() {
 
-  let [keyboard] = useState(data);
+  let [keyboard, setKeyboard] = useState(data);
   let navigate = useNavigate()
 
   return (
@@ -73,6 +74,7 @@ function App() {
           <Route path="member" element={ <div>멤버들</div> } />
           <Route path="location" element={ <div>회사위치</div> } />
         </Route>
+        <Route path='/cart' element={<Cart/>}></Route>
       </Routes>
 
       <button onClick={()=>{
@@ -84,6 +86,15 @@ function App() {
         })
       }}>버튼</button>
 
+      <Button variant="outline-secondary" onClick={()=>{
+        axios.get('https://codingapple1.github.io/shop/data2.json').then((결과)=>{
+          console.log(결과.data)
+        })
+        .catch(()=>{
+          console.log('실패함')
+        })
+      }}>More</Button>{' '}
+      
     </div>
   );
 }
